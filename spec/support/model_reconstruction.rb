@@ -24,7 +24,7 @@ module ModelReconstruction
 
   def reset_table table_name, &block
     block ||= lambda { |table| true }
-    ActiveRecord::Base.connection.create_table :dummies, {force: true}, &block
+    ActiveRecord::Base.connection.create_table :dummies, **{force: true}, &block
   end
 
   def modify_table &block
